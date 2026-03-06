@@ -243,3 +243,22 @@ class TestBang(SearxTestCase):
 
         query = RawTextQuery('the query !', ['osm'])
         self.assertEqual(query.autocomplete_list, ['!images', '!wikipedia'])
+
+
+class TestMathBang(SearxTestCase):
+
+    TEST_SETTINGS = "test_zbmath.yml"
+
+    def test_math_bang_selects_math_engines(self):
+        query = RawTextQuery('the query !math', [])
+
+        self.assertEqual(query.getFullQuery(), '!math the query')
+        self.assertEqual(query.query_parts, ['!math'])
+        self.assertEqual(query.enginerefs[0].name, 'zbmath')
+        self.assertEqual(query.enginerefs[0].category, 'math')
+        self.assertTrue(query.specific)
+
+    def test_math_bang_autocomplete(self):
+        query = RawTextQuery('the query !ma', [])
+
+        self.assertEqual(query.autocomplete_list, ['!math'])

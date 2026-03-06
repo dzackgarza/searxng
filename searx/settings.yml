@@ -1050,6 +1050,11 @@ engines:
     shortcut: mi
     disabled: true
 
+  - name: mathnet
+    engine: mathnet
+    shortcut: mnr
+    disabled: true
+
   - name: habrahabr
     engine: xpath
     paging: true
@@ -1208,12 +1213,15 @@ engines:
 
   - name: library genesis
     engine: xpath
-    # search_url: https://libgen.is/search.php?req={query}
-    search_url: https://libgen.rs/search.php?req={query}
-    url_xpath: //a[contains(@href,"book/index.php?md5")]/@href
-    title_xpath: //a[contains(@href,"book/")]/text()[1]
-    content_xpath: //td/a[1][contains(@href,"=author")]/text()
-    categories: files
+    # search_url: https://libgen.rs/search.php?req={query}
+    search_url: https://libgen.li/index.php?req={query}
+    results_xpath: //table[@id="tablelibgen"]//tr[position()>1]
+    url_xpath: ./td[1]/a[normalize-space()][1]/@href
+    title_xpath: ./td[1]/a[normalize-space()][1]
+    content_xpath: ./td[position() >= 2 and position() <= 7]
+    categories:
+      - files
+      - math
     timeout: 7.0
     disabled: true
     shortcut: lg
@@ -1224,6 +1232,11 @@ engines:
       use_official_api: false
       require_api_key: false
       results: HTML
+
+  - name: zbmath
+    engine: zbmath
+    shortcut: zbm
+    timeout: 5.0
 
   - name: z-library
     engine: zlibrary

@@ -43,6 +43,25 @@ class TestDefaultSettings(SearxTestCase):
         self.assertIsInstance(settings['doi_resolvers'], dict)
         self.assertIsInstance(settings['default_doi_resolver'], str)
 
+        zbmath = next(engine for engine in settings['engines'] if engine['name'] == 'zbmath')
+        self.assertEqual(zbmath['engine'], 'zbmath')
+        self.assertEqual(zbmath['shortcut'], 'zbm')
+        self.assertFalse(zbmath.get('disabled', False))
+
+        mathnet = next(engine for engine in settings['engines'] if engine['name'] == 'mathnet')
+        self.assertEqual(mathnet['engine'], 'mathnet')
+        self.assertEqual(mathnet['shortcut'], 'mnr')
+        self.assertTrue(mathnet['disabled'])
+
+        library_genesis = next(engine for engine in settings['engines'] if engine['name'] == 'library genesis')
+        self.assertEqual(library_genesis['engine'], 'xpath')
+        self.assertEqual(library_genesis['search_url'], 'https://libgen.li/index.php?req={query}')
+        self.assertEqual(library_genesis['results_xpath'], '//table[@id="tablelibgen"]//tr[position()>1]')
+        self.assertEqual(library_genesis['url_xpath'], './td[1]/a[normalize-space()][1]/@href')
+        self.assertEqual(library_genesis['title_xpath'], './td[1]/a[normalize-space()][1]')
+        self.assertEqual(library_genesis['categories'], ['files', 'math'])
+        self.assertEqual(library_genesis['shortcut'], 'lg')
+
 
 class TestUserSettings(SearxTestCase):
 

@@ -1,0 +1,12 @@
+# This SearXNG setup is used in unit tests
+
+use_default_settings:
+
+  engines:
+    keep_only: []
+
+engines:
+
+  - name: zbmath
+    engine: zbmath
+    shortcut: zbm

@@ -62,7 +62,7 @@ about: dict[str, t.Any] = {
 }
 
 # engine dependent config
-categories = ["files", "books"]
+categories = ["files", "books", "math"]
 paging: bool = True
 
 # search-url
