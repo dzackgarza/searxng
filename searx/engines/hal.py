@@ -57,15 +57,19 @@ def response(resp: "SXNG_Response") -> EngineResults:
     res = EngineResults()
     json_data = resp.json()
 
+    def _extract_first(val: t.Any) -> str:
+        """Extract first element if list, otherwise return value."""
+        if isinstance(val, list):
+            return val[0] if val else ""
+        return str(val) if val is not None else ""
+
     for item in json_data.get("response", {}).get("docs", []):
         # Safely extract list or string values (HAL returns lists for text fields)
-        title_list = item.get("title_s", [])
-        title = title_list[0] if title_list else ""
+        title = _extract_first(item.get("title_s", []))
         if not title:
             continue
 
-        abstract_list = item.get("abstract_s", [])
-        content = abstract_list[0] if abstract_list else ""
+        content = _extract_first(item.get("abstract_s", []))
 
         # Determine the canonical URL
         url = item.get("fileMain_s")
@@ -76,8 +80,8 @@ def response(resp: "SXNG_Response") -> EngineResults:
         paper = res.types.Paper(
             title=title,
             content=content,
-            doi=item.get("doiId_s", ""),
-            journal=item.get("journalTitle_s", ""),
+            doi=_extract_first(item.get("doiId_s", "")),
+            journal=_extract_first(item.get("journalTitle_s", "")),
             url=url,
         )
 
