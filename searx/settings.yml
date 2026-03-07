@@ -631,6 +631,11 @@ engines:
     timeout: 30
     disabled: true
 
+  - name: hal
+    engine: hal
+    shortcut: hal
+    timeout: 10
+
   - name: crowdview
     engine: json_engine
     shortcut: cv
