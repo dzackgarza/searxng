@@ -29,6 +29,7 @@ import typing as t
 import abc
 from collections.abc import Callable
 import logging
+from pathlib import Path
 import string
 import typer
 
@@ -41,9 +42,19 @@ if t.TYPE_CHECKING:
     from searx.result_types import EngineResults
     from searx.search.processors import OfflineParamTypes, OnlineParamTypes
 
+
+def _default_engines_cache_db_url() -> str:
+    """Store the shared engine cache in the current user's cache directory."""
+
+    cache_dir = Path.home() / ".cache"
+    cache_dir.mkdir(parents=True, exist_ok=True)
+    return str(cache_dir / "sxng_cache_ENGINES_CACHE.db")
+
+
 ENGINES_CACHE: ExpireCacheSQLite = ExpireCacheSQLite.build_cache(
     ExpireCacheCfg(
         name="ENGINES_CACHE",
+        db_url=_default_engines_cache_db_url(),
         MAXHOLD_TIME=60 * 60 * 24 * 7,  # 7 days
         MAINTENANCE_PERIOD=60 * 60,  # 2h
     )
