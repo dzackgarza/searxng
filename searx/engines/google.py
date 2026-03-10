@@ -287,9 +287,7 @@ def request(query: str, params: "OnlineParams") -> None:
     """Google search request"""
     # pylint: disable=line-too-long
     start = (params["pageno"] - 1) * 10
-    str_async = ui_async(start)
     google_info = get_google_info(params, traits)
-    logger.debug("ARC_ID: %s", str_async)
 
     # https://www.google.de/search?q=corona&hl=de&lr=lang_de&start=0&tbs=qdr%3Ad&safe=medium
     query_url = (
@@ -313,8 +311,8 @@ def request(query: str, params: "OnlineParams") -> None:
                 # 'sa': 'N',
                 # 'sstk': 'AcOHfVkD7sWCSAheZi-0tx_09XDO55gTWY0JNq3_V26cNN-c8lfD45aZYPI8s_Bqp8s57AHz5pxchDtAGCA_cikAWSjy9kw3kgg'
                 # formally known as use_mobile_ui
-                "asearch": "arc",
-                "async": str_async,
+                # "asearch": "arc",
+                # "async": str_async,
             }
         )
     )
@@ -381,7 +379,11 @@ def response(resp: "SXNG_Response"):
                     title,
                 )
                 continue
-            url = unquote(raw_url[7:].split("&sa=U")[0])  # remove the google redirector
+
+            if raw_url.startswith('/url?q='):
+                url = unquote(raw_url[7:].split("&sa=U")[0])  # remove the google redirector
+            else:
+                url = raw_url
 
             content_nodes = eval_xpath(result, './/div[contains(@data-sncf, "1")]')
             for item in content_nodes:
@@ -390,24 +392,17 @@ def response(resp: "SXNG_Response"):
 
             content = extract_text(content_nodes)
 
-            if not content:
-                logger.debug(
-                    'ignoring item from the result_xpath list: missing content of title "%s"',
-                    title,
-                )
-                continue
-
-            thumbnail = content_nodes[0].xpath(".//img/@src")
+            thumbnail = result.xpath(".//img/@src")
             if thumbnail:
                 thumbnail = thumbnail[0]
                 if thumbnail.startswith("data:image"):
-                    img_id = content_nodes[0].xpath(".//img/@id")
+                    img_id = result.xpath(".//img/@id")
                     if img_id:
                         thumbnail = data_image_map.get(img_id[0])
             else:
                 thumbnail = None
 
-            results.append({"url": url, "title": title, "content": content, "thumbnail": thumbnail})
+            results.append({"url": url, "title": title, "content": content or '', "thumbnail": thumbnail})
 
         except Exception as e:  # pylint: disable=broad-except
             logger.error(e, exc_info=True)
