@@ -203,6 +203,7 @@ about: dict[str, str | bool] = {
 categories: list[str] = ["general", "web"]
 paging: bool = True
 time_range_support: bool = True
+language_support = True
 safesearch: bool = True
 """DDG-lite: user can't select but the results are filtered."""
 
@@ -379,6 +380,12 @@ def request(query: str, params: "OnlineParams") -> None:
     # The vqd value is generated from the query and the UA header. To be able to
     # reuse the vqd value, the UA header must be static.
     headers["User-Agent"] = _HTTP_User_Agent
+
+    headers["Sec-Fetch-Dest"] = "document"
+    headers["Sec-Fetch-Mode"] = "navigate"
+    headers["Sec-Fetch-Site"] = "same-origin"
+    headers["Sec-Fetch-User"] = "?1"
+
     headers["Referer"] = "https://html.duckduckgo.com/"
 
     ui_lang = params["searxng_locale"]

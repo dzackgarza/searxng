@@ -1,6 +1,9 @@
 # SPDX-License-Identifier: AGPL-3.0-or-later
 """This module implements functions needed for the autocompleter."""
+
 # pylint: disable=use-dict-literal
+import string
+import random
 
 import json
 import typing as t
@@ -50,6 +53,26 @@ def baidu(query: str, _sxng_locale: str) -> list[str]:
         if 'g' in data:
             for item in data['g']:
                 results.append(item['q'])
+    return results
+
+
+def bing(query: str, _sxng_locale: str) -> list[str]:
+    # bing search autocompleter
+    base_url = "https://www.bing.com/AS/Suggestions?"
+    # cvid has to be a 32 character long string consisting of numbers and uppsercase characters
+    cvid = ''.join(random.choice(string.ascii_uppercase + string.digits) for _ in range(32))
+    response = get(base_url + urlencode({'qry': query, 'csr': 1, 'cvid': cvid}))
+    results: list[str] = []
+
+    if response.ok:
+        data: dict[str, t.Any] = response.json()
+        if 's' in data:
+            for item in data['s']:
+                completion: str = item['q']
+                # bing uses PUA unicode characters to highlight parts of the query
+                # we have to remove these manually (U+E000 and U+E001)
+                completion = completion.replace("\ue000", "").replace("\ue001", "")
+                results.append(completion)
     return results
 
 
@@ -154,6 +177,23 @@ def naver(query: str, _sxng_locale: str) -> list[str]:
             for item in data['items'][0]:
                 results.append(item[0])
     return results
+
+
+def privacywall(query: str, sxng_locale: str) -> list[str]:
+    # Privacywall search autocompleter
+    country = None
+    if "-" in sxng_locale:
+        country = sxng_locale.split("-")[1]
+    args = {'q': query, 'cc': country}
+
+    url = f"https://www.privacywall.org/search/secure/suggestions.php?{urlencode(args)}"
+    response = get(url)
+
+    if not response.ok:
+        return []
+
+    data: list[list[str]] = response.json()
+    return data[1]
 
 
 def qihu360search(query: str, _sxng_locale: str) -> list[str]:
@@ -331,12 +371,14 @@ def yandex(query: str, _sxng_locale: str) -> list[str]:
 backends: dict[str, t.Callable[[str, str], list[str]]] = {
     '360search': qihu360search,
     'baidu': baidu,
+    'bing': bing,
     'brave': brave,
     'dbpedia': dbpedia,
     'duckduckgo': duckduckgo,
     'google': google_complete,
     'mwmbl': mwmbl,
     'naver': naver,
+    'privacywall': privacywall,
     'quark': quark,
     'qwant': qwant,
     'seznam': seznam,

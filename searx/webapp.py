@@ -43,7 +43,6 @@ from flask.json import jsonify
 from flask_babel import (
     Babel,
     gettext,
-    format_decimal,
 )
 
 import searx
@@ -378,7 +377,6 @@ def get_client_settings():
         'theme_static_path': custom_url_for('static', filename='themes/simple'),
         'results_on_new_tab': req_pref.get_value('results_on_new_tab'),
         'favicon_resolver': req_pref.get_value('favicon_resolver'),
-        'advanced_search': req_pref.get_value('advanced_search'),
         'query_in_title': req_pref.get_value('query_in_title'),
         'safesearch': req_pref.get_value('safesearch'),
         'theme': req_pref.get_value('theme'),
@@ -419,8 +417,8 @@ def render(template_name: str, **kwargs):
     # values from settings
     kwargs['search_formats'] = [x for x in settings['search']['formats'] if x != 'html']
     kwargs['instance_name'] = get_setting('general.instance_name')
-    kwargs['searx_version'] = VERSION_STRING
-    kwargs['searx_git_url'] = GIT_URL
+    kwargs['searxng_version'] = VERSION_STRING
+    kwargs['searxng_git_url'] = GIT_URL
     kwargs['enable_metrics'] = get_setting('general.enable_metrics')
     kwargs['get_setting'] = get_setting
     kwargs['get_pretty_url'] = get_pretty_url
@@ -564,7 +562,6 @@ def index_error(output_format: str, error_message: str):
             'opensearch_response_rss.xml',
             results=[],
             q=sxng_request.form['q'] if 'q' in sxng_request.form else '',
-            number_of_results=0,
             error_message=error_message,
         )
         return Response(response_rss, mimetype='text/xml')
@@ -724,7 +721,6 @@ def search():
             'opensearch_response_rss.xml',
             results=results,
             q=sxng_request.form['q'],
-            number_of_results=result_container.number_of_results,
         )
         return Response(response_rss, mimetype='text/xml')
 
@@ -761,7 +757,6 @@ def search():
         selected_categories = search_query.categories,
         pageno = search_query.pageno,
         time_range = search_query.time_range or '',
-        number_of_results = format_decimal(result_container.number_of_results),
         suggestions = suggestion_urls,
         answers = result_container.answers,
         corrections = correction_urls,
@@ -918,9 +913,6 @@ def preferences():
             'rate80': rate80,
             'rate95': rate95,
             'warn_timeout': e.timeout > settings['outgoing']['request_timeout'],
-            'supports_selected_language': e.traits.is_locale_supported(
-                str(sxng_request.preferences.get_value('language') or 'all')
-            ),
             'result_count': result_count,
         }
     # end of stats
@@ -956,15 +948,9 @@ def preferences():
     # supports
     supports = {}
     for _, e in filtered_engines.items():
-        supports_selected_language = e.traits.is_locale_supported(
-            str(sxng_request.preferences.get_value('language') or 'all')
-        )
-        safesearch = e.safesearch
-        time_range_support = e.time_range_support
         supports[e.name] = {
-            'supports_selected_language': supports_selected_language,
-            'safesearch': safesearch,
-            'time_range_support': time_range_support,
+            'safesearch': e.safesearch,
+            'time_range_support': e.time_range_support,
         }
 
     return render(
@@ -990,7 +976,7 @@ def preferences():
         current_doi_resolver = get_doi_resolver(),
         allowed_plugins = allowed_plugins,
         preferences_url_params = sxng_request.preferences.get_as_url_params(),
-        locked_preferences = get_setting("preferences.lock", []),
+        locked_preferences = get_setting("preferences").lock,
         doi_resolvers = get_setting("doi_resolvers", {}),
         # fmt: on
     )
@@ -1089,10 +1075,9 @@ def engine_descriptions():
         result[engine] = description
 
     # overwrite by about:description (from settings)
-    for engine_name, engine_mod in engines.items():
-        descr = getattr(engine_mod, 'about', {}).get('description', None)
-        if descr is not None:
-            result[engine_name] = [descr, "SearXNG config"]
+    for eng_name, eng_obj in engines.items():
+        if eng_obj.about.description:
+            result[eng_name] = [eng_obj.about.description, "SearXNG config"]
 
     return jsonify(result)
 
@@ -1153,7 +1138,6 @@ def stats():
         engine_stats = engine_stats,
         engine_reliabilities = engine_reliabilities,
         selected_engine_name = selected_engine_name,
-        searx_git_branch = GIT_BRANCH,
         technical_report = technical_report,
         # fmt: on
     )
@@ -1214,6 +1198,29 @@ def opensearch():
     ret = render('opensearch.xml', opensearch_method=method, autocomplete=autocomplete)
     resp = Response(response=ret, status=200, mimetype="application/opensearchdescription+xml")
     return resp
+
+
+@app.route('/manifest.json', methods=['GET'])
+def manifest():
+    theme = sxng_request.preferences.get_value('simple_style')
+    if theme not in ("light", "dark", "black"):
+        theme = "light"
+
+    theme_color = get_setting(f'brand.pwa_colors.theme_color_{theme}')
+    background_color = get_setting(f'brand.pwa_colors.background_color_{theme}')
+    ret = render('manifest.json', theme_color=theme_color, background_color=background_color)
+    resp = Response(response=ret, status=200, mimetype="application/json")
+    return resp
+
+
+@app.route('/logo/<resolution>')
+def manifest_logo(resolution=0):
+    theme = sxng_request.preferences.get_value("theme")
+    return send_from_directory(
+        os.path.join(app.root_path, settings['ui']['static_path'], 'themes', theme, 'img', 'logos'),  # type: ignore
+        resolution,
+        mimetype='image/vnd.microsoft.icon',
+    )
 
 
 @app.route('/favicon.ico')
@@ -1340,6 +1347,8 @@ def run():
 
 def init():
 
+    # pylint: disable=import-outside-toplevel
+
     if searx.sxng_debug or app.debug:
         app.debug = True
         searx.sxng_debug = True
@@ -1350,6 +1359,18 @@ def init():
         logger.error("server.secret_key is not changed. Please use something else instead of ultrasecretkey.")
         sys.exit(1)
 
+    # init database schema first / DB schema is created with the first connect
+    from searx.data import get_cache
+    from searx.enginelib import ENGINES_CACHE
+
+    conn = get_cache().connect()
+    conn.close()
+    conn = ENGINES_CACHE.connect()
+    conn.close()
+
+    favicons.init()
+
+    # init application
     locales_initialize()
     valkey_initialize()
     searx.plugins.initialize(app)
@@ -1358,7 +1379,6 @@ def init():
     searx.search.initialize(check_network=True, enable_metrics=metrics)
 
     limiter.initialize(app, settings)
-    favicons.init()
 
 
 def static_headers(headers: Headers, _path: str, _url: str) -> None:

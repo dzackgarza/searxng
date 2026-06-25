@@ -27,7 +27,7 @@
 # BalkanMadman <balkanmadman@users.noreply.translate.codeberg.org>, 2025.
 # AHOHNMYC <ahohnmyc@users.noreply.translate.codeberg.org>, 2025.
 # curtwheeler <curtwheeler@users.noreply.translate.codeberg.org>, 2025.
-# return42 <return42@noreply.codeberg.org>, 2025.
+# return42 <return42@noreply.codeberg.org>, 2025, 2026.
 # yurtpage <yurtpage@noreply.codeberg.org>, 2025.
 # kotovasia <kotovasia@noreply.codeberg.org>, 2025.
 # IcewindX <icewindx@noreply.codeberg.org>, 2025.
@@ -37,9 +37,9 @@ msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-22 13:48+0000\n"
-"PO-Revision-Date: 2026-02-13 07:28+0000\n"
-"Last-Translator: greatdng <greatdng@noreply.codeberg.org>\n"
+"POT-Creation-Date: 2026-06-13 11:31+0000\n"
+"PO-Revision-Date: 2026-05-19 12:08+0000\n"
+"Last-Translator: return42 <return42@noreply.codeberg.org>\n"
 "Language: ru\n"
 "Language-Team: Russian "
 "<https://translate.codeberg.org/projects/searxng/searxng/ru/>\n"
@@ -54,7 +54,7 @@ msgstr ""
 #. CONSTANT_NAMES['NO_SUBGROUPING']
 #: searx/searxng.msg
 msgid "without further subgrouping"
-msgstr "без дополнительной разбивки на подгруппы"
+msgstr "без дальнейшей разбивки на подгруппы"
 
 #. CONSTANT_NAMES['DEFAULT_CATEGORY']
 #: searx/searxng.msg
@@ -92,7 +92,7 @@ msgid "videos"
 msgstr "видео"
 
 #. CATEGORY_NAMES['RADIO']
-#: searx/engines/radio_browser.py:142 searx/searxng.msg
+#: searx/engines/radio_browser.py:159 searx/searxng.msg
 msgid "radio"
 msgstr "радио"
 
@@ -197,7 +197,7 @@ msgid "Uptime"
 msgstr "Вр. работы"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:46
+#: searx/searxng.msg searx/templates/simple/base.html:47
 msgid "About"
 msgstr "О программе"
 
@@ -562,28 +562,28 @@ msgstr "закрыт"
 msgid "answered"
 msgstr "ответил"
 
-#: searx/webapp.py:327
+#: searx/webapp.py:326
 msgid "No item found"
 msgstr "Ничего не найдено"
 
-#: searx/engines/qwant.py:296
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:329
+#: searx/engines/qwant.py:258
+#: searx/templates/simple/result_templates/images.html:62 searx/webapp.py:328
 msgid "Source"
 msgstr "Источник"
 
-#: searx/webapp.py:331
+#: searx/webapp.py:330
 msgid "Error loading the next page"
 msgstr "Не удалось загрузить следующую страницу"
 
-#: searx/webapp.py:480 searx/webapp.py:881
+#: searx/webapp.py:478 searx/webapp.py:876
 msgid "Invalid settings, please edit your preferences"
 msgstr "Неправильные параметры, пожалуйста, измените ваши настройки"
 
-#: searx/webapp.py:496
+#: searx/webapp.py:494
 msgid "Invalid settings"
 msgstr "Неверные настройки"
 
-#: searx/webapp.py:573 searx/webapp.py:663
+#: searx/webapp.py:570 searx/webapp.py:660
 msgid "search error"
 msgstr "ошибка поиска"
 
@@ -643,12 +643,12 @@ msgstr "ошибка API сервера"
 msgid "Suspended"
 msgstr "Приостановлено"
 
-#: searx/webutils.py:308
+#: searx/webutils.py:307
 #, python-brace-format
 msgid "{minutes} minute(s) ago"
 msgstr "{minutes} минут(-у) назад"
 
-#: searx/webutils.py:309
+#: searx/webutils.py:308
 #, python-brace-format
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} час(ов), {minutes} минут(а) назад"
@@ -661,6 +661,11 @@ msgstr "Генерирует разные случайные значения"
 #, python-brace-format
 msgid "Compute {func} of the arguments"
 msgstr "Вычислить {func} от аргументов"
+
+#: searx/engines/boardreader.py:107
+#, python-brace-format
+msgid "Posted by {author}"
+msgstr "Опубликовано {author}"
 
 #: searx/engines/openstreetmap.py:155
 msgid "Show route in map .."
@@ -675,19 +680,19 @@ msgstr "{title} (УСТАРЕЛО)"
 msgid "This entry has been superseded by"
 msgstr "Эта запись была заменена на"
 
-#: searx/engines/qwant.py:298
+#: searx/engines/qwant.py:260
 msgid "Channel"
 msgstr "Канал"
 
-#: searx/engines/radio_browser.py:144
+#: searx/engines/radio_browser.py:161
 msgid "bitrate"
 msgstr "битрейт"
 
-#: searx/engines/radio_browser.py:145
+#: searx/engines/radio_browser.py:162
 msgid "votes"
 msgstr "голоса"
 
-#: searx/engines/radio_browser.py:146
+#: searx/engines/radio_browser.py:163
 msgid "clicks"
 msgstr "нажатия"
 
@@ -722,15 +727,15 @@ msgstr ""
 msgid "The image could not be downloaded."
 msgstr "Не удалось загрузить изображение."
 
-#: searx/engines/zlibrary.py:78
+#: searx/engines/zlibrary.py:79
 msgid "Language"
 msgstr "Язык"
 
-#: searx/engines/zlibrary.py:79
+#: searx/engines/zlibrary.py:80
 msgid "Book rating"
 msgstr "Рейтинг книги"
 
-#: searx/engines/zlibrary.py:80
+#: searx/engines/zlibrary.py:81
 msgid "File quality"
 msgstr "Качество файла"
 
@@ -785,8 +790,8 @@ msgid ""
 "Automatically loads the next page when scrolling to bottom of the current"
 " page"
 msgstr ""
-"Автоматически загружать следующую страницу при прокрутке вниз текущей "
-"страницы"
+"Автоматически загружает следующую страницу при прокрутке до конца текущей"
+" страницы"
 
 #: searx/plugins/oa_doi_rewrite.py:54
 msgid "Open Access DOI rewrite"
@@ -887,45 +892,45 @@ msgstr "Перейти к %(search_page)s."
 msgid "search page"
 msgstr "страница поиска"
 
-#: searx/templates/simple/base.html:50
+#: searx/templates/simple/base.html:51
 msgid "Donate"
 msgstr "Пожертвовать"
 
-#: searx/templates/simple/base.html:55 searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:56 searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:152
 msgid "Preferences"
 msgstr "Настройки"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "Powered by"
 msgstr "Работает на"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "открытая и конфиденциальная метапоисковая система"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 #: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "Исходный код"
 
-#: searx/templates/simple/base.html:70
+#: searx/templates/simple/base.html:71
 msgid "Issue tracker"
 msgstr "Сообщить о проблеме"
 
-#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:72 searx/templates/simple/stats.html:17
 msgid "Engine stats"
 msgstr "Статистика по поисковым системам"
 
-#: searx/templates/simple/base.html:73
+#: searx/templates/simple/base.html:74
 msgid "Public instances"
 msgstr "Публичные зеркала"
 
-#: searx/templates/simple/base.html:76
+#: searx/templates/simple/base.html:77
 msgid "Privacy policy"
 msgstr "Политика конфиденциальности"
 
-#: searx/templates/simple/base.html:79
+#: searx/templates/simple/base.html:80
 msgid "Contact instance maintainer"
 msgstr "Сопровождающий текущего зеркала"
 
@@ -944,7 +949,7 @@ msgstr "Просмотры"
 
 #: searx/templates/simple/macros.html:43
 #: searx/templates/simple/result_templates/file.html:18
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/images.html:52
 #: searx/templates/simple/result_templates/paper.html:14
 msgid "Author"
 msgstr "Автор"
@@ -952,30 +957,6 @@ msgstr "Автор"
 #: searx/templates/simple/macros.html:51
 msgid "cached"
 msgstr "веб-архив"
-
-#: searx/templates/simple/new_issue.html:60
-msgid "Start submitting a new issue on GitHub"
-msgstr "Создайте задачу на GitHub"
-
-#: searx/templates/simple/new_issue.html:62
-msgid "Please check for existing bugs about this engine on GitHub"
-msgstr "Пожалуйста, ознакомьтесь с сообщениями о проблемах этого движка на GitHub"
-
-#: searx/templates/simple/new_issue.html:65
-msgid "I confirm there is no existing bug about the issue I encounter"
-msgstr ""
-"Я подтверждаю, что не существует ошибки, связанной со встретившейся мне "
-"проблемой"
-
-#: searx/templates/simple/new_issue.html:67
-msgid "If this is a public instance, please specify the URL in the bug report"
-msgstr "Если это публичное зеркало, пожалуйста, укажите ссылку в отчёте об ошибке"
-
-#: searx/templates/simple/new_issue.html:68
-msgid "Submit a new issue on Github including the above information"
-msgstr ""
-"Отправить новое сообщение о проблеме на Github, включая вышеуказанную "
-"информацию"
 
 #: searx/templates/simple/preferences.html:65
 msgid "No HTTPS"
@@ -996,17 +977,17 @@ msgid "!bang for its categories"
 msgstr "!bang для его категорий"
 
 #: searx/templates/simple/preferences.html:102
-#: searx/templates/simple/stats.html:64
+#: searx/templates/simple/stats.html:63
 msgid "Median"
 msgstr "Медиана"
 
 #: searx/templates/simple/preferences.html:103
-#: searx/templates/simple/stats.html:70
+#: searx/templates/simple/stats.html:69
 msgid "P80"
 msgstr "P80"
 
 #: searx/templates/simple/preferences.html:104
-#: searx/templates/simple/stats.html:76
+#: searx/templates/simple/stats.html:75
 msgid "P95"
 msgstr "P95"
 
@@ -1060,23 +1041,19 @@ msgstr "Особые запросы"
 msgid "Cookies"
 msgstr "Cookie-файлы"
 
-#: searx/templates/simple/results.html:30
-msgid "Number of results"
-msgstr "Количество результатов"
-
-#: searx/templates/simple/results.html:36
+#: searx/templates/simple/results.html:32
 msgid "Info"
 msgstr "Краткая информация"
 
-#: searx/templates/simple/results.html:77
+#: searx/templates/simple/results.html:73
 msgid "Back to top"
 msgstr "Наверх"
 
-#: searx/templates/simple/results.html:95
+#: searx/templates/simple/results.html:91
 msgid "Previous page"
 msgstr "Предыдущая страница"
 
-#: searx/templates/simple/results.html:113
+#: searx/templates/simple/results.html:109
 msgid "Next page"
 msgstr "Следующая страница"
 
@@ -1099,81 +1076,81 @@ msgstr "очистить"
 msgid "search"
 msgstr "поиск"
 
-#: searx/templates/simple/stats.html:21
+#: searx/templates/simple/stats.html:20
 msgid "There is currently no data available. "
 msgstr "На данный момент данные недоступны. "
 
 #: searx/templates/simple/preferences/engines.html:24
-#: searx/templates/simple/stats.html:25
+#: searx/templates/simple/stats.html:24
 msgid "Engine name"
 msgstr "Поисковая система"
 
-#: searx/templates/simple/stats.html:26
+#: searx/templates/simple/stats.html:25
 msgid "Scores"
 msgstr "Попаданий"
 
-#: searx/templates/simple/stats.html:27
+#: searx/templates/simple/stats.html:26
 msgid "Result count"
 msgstr "Число результатов"
 
 #: searx/templates/simple/elements/engines_msg.html:7
-#: searx/templates/simple/preferences/engines.html:31
-#: searx/templates/simple/stats.html:28
+#: searx/templates/simple/preferences/engines.html:30
+#: searx/templates/simple/stats.html:27
 msgid "Response time"
 msgstr "Время отклика"
 
-#: searx/templates/simple/preferences/engines.html:35
-#: searx/templates/simple/stats.html:29
+#: searx/templates/simple/preferences/engines.html:34
+#: searx/templates/simple/stats.html:28
 msgid "Reliability"
 msgstr "Надёжность"
 
-#: searx/templates/simple/stats.html:59
+#: searx/templates/simple/stats.html:58
 msgid "Total"
 msgstr "Всего"
 
-#: searx/templates/simple/stats.html:60
+#: searx/templates/simple/stats.html:59
 msgid "HTTP"
 msgstr "HTTP"
 
-#: searx/templates/simple/stats.html:61
+#: searx/templates/simple/stats.html:60
 msgid "Processing"
 msgstr "Обработка"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Warnings"
 msgstr "Предупреждения"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Errors and exceptions"
 msgstr "Ошибки и исключения"
 
-#: searx/templates/simple/stats.html:105
+#: searx/templates/simple/stats.html:104
 msgid "Exception"
 msgstr "Исключение"
 
-#: searx/templates/simple/stats.html:107
+#: searx/templates/simple/stats.html:106
 msgid "Message"
 msgstr "Сообщение"
 
-#: searx/templates/simple/stats.html:109
+#: searx/templates/simple/stats.html:108
 msgid "Percentage"
 msgstr "Процент"
 
-#: searx/templates/simple/stats.html:111
+#: searx/templates/simple/stats.html:110
 msgid "Parameter"
 msgstr "Параметр"
 
 #: searx/templates/simple/result_templates/code.html:29
 #: searx/templates/simple/result_templates/file.html:24
-#: searx/templates/simple/stats.html:119
+#: searx/templates/simple/stats.html:118
 msgid "Filename"
 msgstr "Имя файла"
 
-#: searx/templates/simple/stats.html:120
+#: searx/templates/simple/stats.html:119
 msgid "Function"
 msgstr "Функция"
 
-#: searx/templates/simple/stats.html:121
+#: searx/templates/simple/stats.html:120
 msgid "Code"
 msgstr "Код"
 
@@ -1251,7 +1228,7 @@ msgstr "Авто-определение"
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:26
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "Безопасный поиск"
@@ -1272,7 +1249,7 @@ msgid "None"
 msgstr "Отключен"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:28
+#: searx/templates/simple/preferences/engines.html:27
 msgid "Time range"
 msgstr "Временной диапазон"
 
@@ -1472,15 +1449,11 @@ msgstr "Отключить всё"
 msgid "!bang"
 msgstr "!bang"
 
-#: searx/templates/simple/preferences/engines.html:26
-msgid "Supports selected language"
-msgstr "Поддерживает выбранный язык"
-
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Weight"
 msgstr "Вес"
 
-#: searx/templates/simple/preferences/engines.html:33
+#: searx/templates/simple/preferences/engines.html:32
 msgid "Max time"
 msgstr "Максимальное время"
 
@@ -1670,7 +1643,7 @@ msgid "This site did not provide any description."
 msgstr "Этот сайт не предоставил описания."
 
 #: searx/templates/simple/result_templates/file.html:30
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:61
 #: searx/templates/simple/result_templates/torrent.html:18
 msgid "Filesize"
 msgstr "Размер файла"
@@ -1688,19 +1661,23 @@ msgstr "Тип"
 msgid "Download"
 msgstr "Скачать"
 
-#: searx/templates/simple/result_templates/images.html:20
+#: searx/templates/simple/result_templates/images.html:53
 msgid "Resolution"
 msgstr "Разрешение"
 
-#: searx/templates/simple/result_templates/images.html:21
-msgid "Format"
-msgstr "Формат"
+#: searx/templates/simple/result_templates/images.html:55
+msgid "Image formats"
+msgstr ""
 
-#: searx/templates/simple/result_templates/images.html:24
+#: searx/templates/simple/result_templates/images.html:56
+msgid "original format"
+msgstr ""
+
+#: searx/templates/simple/result_templates/images.html:63
 msgid "Engine"
 msgstr "Движок"
 
-#: searx/templates/simple/result_templates/images.html:25
+#: searx/templates/simple/result_templates/images.html:64
 msgid "View source"
 msgstr "Перейти к источнику"
 
@@ -2432,4 +2409,36 @@ msgstr "скрыть видео"
 
 #~ msgid "Comment(s)"
 #~ msgstr "Комментарии"
+
+#~ msgid "Start submitting a new issue on GitHub"
+#~ msgstr "Создайте задачу на GitHub"
+
+#~ msgid "Please check for existing bugs about this engine on GitHub"
+#~ msgstr ""
+#~ "Пожалуйста, ознакомьтесь с сообщениями о "
+#~ "проблемах этого движка на GitHub"
+
+#~ msgid "I confirm there is no existing bug about the issue I encounter"
+#~ msgstr ""
+#~ "Я подтверждаю, что не существует ошибки,"
+#~ " связанной со встретившейся мне проблемой"
+
+#~ msgid "If this is a public instance, please specify the URL in the bug report"
+#~ msgstr ""
+#~ "Если это публичное зеркало, пожалуйста, "
+#~ "укажите ссылку в отчёте об ошибке"
+
+#~ msgid "Submit a new issue on Github including the above information"
+#~ msgstr ""
+#~ "Отправить новое сообщение о проблеме на"
+#~ " Github, включая вышеуказанную информацию"
+
+#~ msgid "Supports selected language"
+#~ msgstr "Поддерживает выбранный язык"
+
+#~ msgid "Number of results"
+#~ msgstr "Количество результатов"
+
+#~ msgid "Format"
+#~ msgstr "Формат"
 

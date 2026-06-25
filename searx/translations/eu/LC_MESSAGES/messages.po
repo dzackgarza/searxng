@@ -14,14 +14,14 @@
 # alexgabi <alexgabi@users.noreply.translate.codeberg.org>, 2024, 2025.
 # return42 <return42@users.noreply.translate.codeberg.org>, 2024, 2025.
 # Anonymous <anonymous@users.noreply.translate.codeberg.org>, 2025.
-# alexgabi <alexgabi@noreply.codeberg.org>, 2025.
+# alexgabi <alexgabi@noreply.codeberg.org>, 2025, 2026.
 # return42 <return42@noreply.codeberg.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-22 13:48+0000\n"
-"PO-Revision-Date: 2025-11-07 07:10+0000\n"
+"POT-Creation-Date: 2026-06-13 11:31+0000\n"
+"PO-Revision-Date: 2026-05-01 07:50+0000\n"
 "Last-Translator: alexgabi <alexgabi@noreply.codeberg.org>\n"
 "Language: eu\n"
 "Language-Team: Basque "
@@ -73,7 +73,7 @@ msgid "videos"
 msgstr "bideoak"
 
 #. CATEGORY_NAMES['RADIO']
-#: searx/engines/radio_browser.py:142 searx/searxng.msg
+#: searx/engines/radio_browser.py:159 searx/searxng.msg
 msgid "radio"
 msgstr "irratia"
 
@@ -178,7 +178,7 @@ msgid "Uptime"
 msgstr "Epea"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:46
+#: searx/searxng.msg searx/templates/simple/base.html:47
 msgid "About"
 msgstr "Honi buruz"
 
@@ -543,28 +543,28 @@ msgstr "itxita"
 msgid "answered"
 msgstr "erantzunda"
 
-#: searx/webapp.py:327
+#: searx/webapp.py:326
 msgid "No item found"
 msgstr "Ez da elementurik aurkitu"
 
-#: searx/engines/qwant.py:296
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:329
+#: searx/engines/qwant.py:258
+#: searx/templates/simple/result_templates/images.html:62 searx/webapp.py:328
 msgid "Source"
 msgstr "Iturria"
 
-#: searx/webapp.py:331
+#: searx/webapp.py:330
 msgid "Error loading the next page"
 msgstr "Errorea hurrengo orrialdea kargatzean"
 
-#: searx/webapp.py:480 searx/webapp.py:881
+#: searx/webapp.py:478 searx/webapp.py:876
 msgid "Invalid settings, please edit your preferences"
 msgstr "Ezarpen baliogabeak, editatu zure hobespenak"
 
-#: searx/webapp.py:496
+#: searx/webapp.py:494
 msgid "Invalid settings"
 msgstr "Ezarpen baliogabeak"
 
-#: searx/webapp.py:573 searx/webapp.py:663
+#: searx/webapp.py:570 searx/webapp.py:660
 msgid "search error"
 msgstr "bilaketa akatsa"
 
@@ -624,12 +624,12 @@ msgstr "API zerbitzariaren errorea"
 msgid "Suspended"
 msgstr "Etenda"
 
-#: searx/webutils.py:308
+#: searx/webutils.py:307
 #, python-brace-format
 msgid "{minutes} minute(s) ago"
 msgstr "duela {minutes} minutu"
 
-#: searx/webutils.py:309
+#: searx/webutils.py:308
 #, python-brace-format
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "duela {hours} ordu eta {minutes} minutu"
@@ -642,6 +642,11 @@ msgstr "Ausazko balio ezberdinak sortu"
 #, python-brace-format
 msgid "Compute {func} of the arguments"
 msgstr "Kalkulatu argumentuen {func}"
+
+#: searx/engines/boardreader.py:107
+#, python-brace-format
+msgid "Posted by {author}"
+msgstr "{author}-k argitaratuta"
 
 #: searx/engines/openstreetmap.py:155
 msgid "Show route in map .."
@@ -656,19 +661,19 @@ msgstr "{title} (ZAHARKITUA)"
 msgid "This entry has been superseded by"
 msgstr "Sarrera hau hurrengoarekin ordezkatu da"
 
-#: searx/engines/qwant.py:298
+#: searx/engines/qwant.py:260
 msgid "Channel"
 msgstr "Kanala"
 
-#: searx/engines/radio_browser.py:144
+#: searx/engines/radio_browser.py:161
 msgid "bitrate"
 msgstr "bit emaria"
 
-#: searx/engines/radio_browser.py:145
+#: searx/engines/radio_browser.py:162
 msgid "votes"
 msgstr "botoak"
 
-#: searx/engines/radio_browser.py:146
+#: searx/engines/radio_browser.py:163
 msgid "clicks"
 msgstr "klikak"
 
@@ -703,15 +708,15 @@ msgstr ""
 msgid "The image could not be downloaded."
 msgstr "Ezin izan da deskargatu irudia."
 
-#: searx/engines/zlibrary.py:78
+#: searx/engines/zlibrary.py:79
 msgid "Language"
 msgstr "Hizkuntza"
 
-#: searx/engines/zlibrary.py:79
+#: searx/engines/zlibrary.py:80
 msgid "Book rating"
 msgstr "Liburuaren balorazioa"
 
-#: searx/engines/zlibrary.py:80
+#: searx/engines/zlibrary.py:81
 msgid "File quality"
 msgstr "Fitxategiaren kalitatea"
 
@@ -725,11 +730,11 @@ msgstr "Ahmiaren zerrenda beltzean agertzen diren tipula-emaitzak iragaztea."
 
 #: searx/plugins/calculator.py:25
 msgid "Calculator"
-msgstr ""
+msgstr "Kalkulagailua"
 
 #: searx/plugins/calculator.py:26
 msgid "Parses and solves mathematical expressions."
-msgstr ""
+msgstr "Adierazpen matematikoak analizatzen eta ebazten ditu."
 
 #: searx/plugins/hash_plugin.py:33
 msgid "Hash plugin"
@@ -766,6 +771,8 @@ msgid ""
 "Automatically loads the next page when scrolling to bottom of the current"
 " page"
 msgstr ""
+"Automatikoki hurrengo orria kargatzen du uneko orriaren behealdera "
+"korritzean"
 
 #: searx/plugins/oa_doi_rewrite.py:54
 msgid "Open Access DOI rewrite"
@@ -866,45 +873,45 @@ msgstr "%(search_page)s(e)ra joan."
 msgid "search page"
 msgstr "bilaketa orria"
 
-#: searx/templates/simple/base.html:50
+#: searx/templates/simple/base.html:51
 msgid "Donate"
 msgstr "Lagundu diruz"
 
-#: searx/templates/simple/base.html:55 searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:56 searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:152
 msgid "Preferences"
 msgstr "Hobespenak"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "Powered by"
 msgstr "Garatzailea"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "pribatutasuna errespetatzen duen metabilatzaile irekia"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 #: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "Iturburu-kodea"
 
-#: searx/templates/simple/base.html:70
+#: searx/templates/simple/base.html:71
 msgid "Issue tracker"
 msgstr "Arazoen jarraipena"
 
-#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:72 searx/templates/simple/stats.html:17
 msgid "Engine stats"
 msgstr "Bilatzaileen estatistikak"
 
-#: searx/templates/simple/base.html:73
+#: searx/templates/simple/base.html:74
 msgid "Public instances"
 msgstr "Instantzia publikoak"
 
-#: searx/templates/simple/base.html:76
+#: searx/templates/simple/base.html:77
 msgid "Privacy policy"
 msgstr "Pribatutasun politika"
 
-#: searx/templates/simple/base.html:79
+#: searx/templates/simple/base.html:80
 msgid "Contact instance maintainer"
 msgstr "Instantziaren mantentzailearekin harremanetan jarri"
 
@@ -923,7 +930,7 @@ msgstr "Ikuspegiak"
 
 #: searx/templates/simple/macros.html:43
 #: searx/templates/simple/result_templates/file.html:18
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/images.html:52
 #: searx/templates/simple/result_templates/paper.html:14
 msgid "Author"
 msgstr "Egilea"
@@ -931,26 +938,6 @@ msgstr "Egilea"
 #: searx/templates/simple/macros.html:51
 msgid "cached"
 msgstr "cachean gordeta"
-
-#: searx/templates/simple/new_issue.html:60
-msgid "Start submitting a new issue on GitHub"
-msgstr "Hasi gai -issue- berri bat bidaltzen GitHub-en"
-
-#: searx/templates/simple/new_issue.html:62
-msgid "Please check for existing bugs about this engine on GitHub"
-msgstr "Egiaztatu motor honi buruzko akatsik dagoen GitHub-en"
-
-#: searx/templates/simple/new_issue.html:65
-msgid "I confirm there is no existing bug about the issue I encounter"
-msgstr "Berresten dut aurkitzen dudan arazoari buruzko akatsik ez dagoela"
-
-#: searx/templates/simple/new_issue.html:67
-msgid "If this is a public instance, please specify the URL in the bug report"
-msgstr "Hau instantzia publikoa bada, mesedez zehaztu URLa akatsen txostenean"
-
-#: searx/templates/simple/new_issue.html:68
-msgid "Submit a new issue on Github including the above information"
-msgstr "Bidali gai -issue- berri bat Github-en goiko informazioa barne"
 
 #: searx/templates/simple/preferences.html:65
 msgid "No HTTPS"
@@ -971,17 +958,17 @@ msgid "!bang for its categories"
 msgstr "!bang bere kategorietarako"
 
 #: searx/templates/simple/preferences.html:102
-#: searx/templates/simple/stats.html:64
+#: searx/templates/simple/stats.html:63
 msgid "Median"
 msgstr "Tartekoa"
 
 #: searx/templates/simple/preferences.html:103
-#: searx/templates/simple/stats.html:70
+#: searx/templates/simple/stats.html:69
 msgid "P80"
 msgstr "P80"
 
 #: searx/templates/simple/preferences.html:104
-#: searx/templates/simple/stats.html:76
+#: searx/templates/simple/stats.html:75
 msgid "P95"
 msgstr "P95"
 
@@ -1035,23 +1022,19 @@ msgstr "Kontsulta bereziak"
 msgid "Cookies"
 msgstr "Cookieak"
 
-#: searx/templates/simple/results.html:30
-msgid "Number of results"
-msgstr "Emaitza kopurua"
-
-#: searx/templates/simple/results.html:36
+#: searx/templates/simple/results.html:32
 msgid "Info"
 msgstr "Informazioa"
 
-#: searx/templates/simple/results.html:77
+#: searx/templates/simple/results.html:73
 msgid "Back to top"
 msgstr "Gora bueltatu"
 
-#: searx/templates/simple/results.html:95
+#: searx/templates/simple/results.html:91
 msgid "Previous page"
 msgstr "Aurreko orria"
 
-#: searx/templates/simple/results.html:113
+#: searx/templates/simple/results.html:109
 msgid "Next page"
 msgstr "Hurrengo orria"
 
@@ -1074,81 +1057,81 @@ msgstr "garbitu"
 msgid "search"
 msgstr "bilatu"
 
-#: searx/templates/simple/stats.html:21
+#: searx/templates/simple/stats.html:20
 msgid "There is currently no data available. "
 msgstr "Une honetan ez dago daturik eskuragarri."
 
 #: searx/templates/simple/preferences/engines.html:24
-#: searx/templates/simple/stats.html:25
+#: searx/templates/simple/stats.html:24
 msgid "Engine name"
 msgstr "Bilatzailearen izena"
 
-#: searx/templates/simple/stats.html:26
+#: searx/templates/simple/stats.html:25
 msgid "Scores"
 msgstr "Balorazioak"
 
-#: searx/templates/simple/stats.html:27
+#: searx/templates/simple/stats.html:26
 msgid "Result count"
 msgstr "Emaitzen zenbaketa"
 
 #: searx/templates/simple/elements/engines_msg.html:7
-#: searx/templates/simple/preferences/engines.html:31
-#: searx/templates/simple/stats.html:28
+#: searx/templates/simple/preferences/engines.html:30
+#: searx/templates/simple/stats.html:27
 msgid "Response time"
 msgstr "Erantzuteko denbora"
 
-#: searx/templates/simple/preferences/engines.html:35
-#: searx/templates/simple/stats.html:29
+#: searx/templates/simple/preferences/engines.html:34
+#: searx/templates/simple/stats.html:28
 msgid "Reliability"
 msgstr "Fidagarritasuna"
 
-#: searx/templates/simple/stats.html:59
+#: searx/templates/simple/stats.html:58
 msgid "Total"
 msgstr "Guztira"
 
-#: searx/templates/simple/stats.html:60
+#: searx/templates/simple/stats.html:59
 msgid "HTTP"
 msgstr "HTTP"
 
-#: searx/templates/simple/stats.html:61
+#: searx/templates/simple/stats.html:60
 msgid "Processing"
 msgstr "Prozesatzen"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Warnings"
 msgstr "Abisuak"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Errors and exceptions"
 msgstr "Errore eta salbuespenak"
 
-#: searx/templates/simple/stats.html:105
+#: searx/templates/simple/stats.html:104
 msgid "Exception"
 msgstr "Salbuespena"
 
-#: searx/templates/simple/stats.html:107
+#: searx/templates/simple/stats.html:106
 msgid "Message"
 msgstr "Mezua"
 
-#: searx/templates/simple/stats.html:109
+#: searx/templates/simple/stats.html:108
 msgid "Percentage"
 msgstr "Ehunekoa"
 
-#: searx/templates/simple/stats.html:111
+#: searx/templates/simple/stats.html:110
 msgid "Parameter"
 msgstr "Parametroa"
 
 #: searx/templates/simple/result_templates/code.html:29
 #: searx/templates/simple/result_templates/file.html:24
-#: searx/templates/simple/stats.html:119
+#: searx/templates/simple/stats.html:118
 msgid "Filename"
 msgstr "Fitxategiaren izena"
 
-#: searx/templates/simple/stats.html:120
+#: searx/templates/simple/stats.html:119
 msgid "Function"
 msgstr "Funtzioa"
 
-#: searx/templates/simple/stats.html:121
+#: searx/templates/simple/stats.html:120
 msgid "Code"
 msgstr "Kodea"
 
@@ -1226,7 +1209,7 @@ msgstr "Auto-detektatu"
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:26
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "Bilaketa segurua"
@@ -1247,7 +1230,7 @@ msgid "None"
 msgstr "Bat ere ez"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:28
+#: searx/templates/simple/preferences/engines.html:27
 msgid "Time range"
 msgstr "Denbora tartea"
 
@@ -1445,15 +1428,11 @@ msgstr "Desgaitu dena"
 msgid "!bang"
 msgstr "!bang"
 
-#: searx/templates/simple/preferences/engines.html:26
-msgid "Supports selected language"
-msgstr "Hautatutako hizkuntza onartzen du"
-
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Weight"
 msgstr "Pisua"
 
-#: searx/templates/simple/preferences/engines.html:33
+#: searx/templates/simple/preferences/engines.html:32
 msgid "Max time"
 msgstr "Gehienezko denbora"
 
@@ -1642,7 +1621,7 @@ msgid "This site did not provide any description."
 msgstr "Gune honek ez du deskribapenik eman."
 
 #: searx/templates/simple/result_templates/file.html:30
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:61
 #: searx/templates/simple/result_templates/torrent.html:18
 msgid "Filesize"
 msgstr "Fitxategiaren tamaina"
@@ -1660,19 +1639,23 @@ msgstr "Mota"
 msgid "Download"
 msgstr "Deskargatu"
 
-#: searx/templates/simple/result_templates/images.html:20
+#: searx/templates/simple/result_templates/images.html:53
 msgid "Resolution"
 msgstr "Ebazpena"
 
-#: searx/templates/simple/result_templates/images.html:21
-msgid "Format"
-msgstr "Formatua"
+#: searx/templates/simple/result_templates/images.html:55
+msgid "Image formats"
+msgstr ""
 
-#: searx/templates/simple/result_templates/images.html:24
+#: searx/templates/simple/result_templates/images.html:56
+msgid "original format"
+msgstr ""
+
+#: searx/templates/simple/result_templates/images.html:63
 msgid "Engine"
 msgstr "Bilatzailea"
 
-#: searx/templates/simple/result_templates/images.html:25
+#: searx/templates/simple/result_templates/images.html:64
 msgid "View source"
 msgstr "Ikusi iturria"
 
@@ -2387,4 +2370,28 @@ msgstr "ezkutatu bideoa"
 
 #~ msgid "Comment(s)"
 #~ msgstr "Iruzkina(k)"
+
+#~ msgid "Start submitting a new issue on GitHub"
+#~ msgstr "Hasi gai -issue- berri bat bidaltzen GitHub-en"
+
+#~ msgid "Please check for existing bugs about this engine on GitHub"
+#~ msgstr "Egiaztatu motor honi buruzko akatsik dagoen GitHub-en"
+
+#~ msgid "I confirm there is no existing bug about the issue I encounter"
+#~ msgstr "Berresten dut aurkitzen dudan arazoari buruzko akatsik ez dagoela"
+
+#~ msgid "If this is a public instance, please specify the URL in the bug report"
+#~ msgstr "Hau instantzia publikoa bada, mesedez zehaztu URLa akatsen txostenean"
+
+#~ msgid "Submit a new issue on Github including the above information"
+#~ msgstr "Bidali gai -issue- berri bat Github-en goiko informazioa barne"
+
+#~ msgid "Supports selected language"
+#~ msgstr "Hautatutako hizkuntza onartzen du"
+
+#~ msgid "Number of results"
+#~ msgstr "Emaitza kopurua"
+
+#~ msgid "Format"
+#~ msgstr "Formatua"
 

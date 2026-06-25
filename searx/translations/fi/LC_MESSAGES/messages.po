@@ -16,16 +16,16 @@
 # Implosion <implosion@users.noreply.translate.codeberg.org>, 2025.
 # Anonymous <anonymous@users.noreply.translate.codeberg.org>, 2025.
 # Ricky-Tigg <ricky-tigg@users.noreply.translate.codeberg.org>, 2025.
-# return42 <return42@noreply.codeberg.org>, 2025.
+# return42 <return42@noreply.codeberg.org>, 2025, 2026.
 # artnay <artnay@noreply.codeberg.org>, 2025.
 # Ricky-Tigg <ricky-tigg@noreply.codeberg.org>, 2025.
 msgid ""
 msgstr ""
 "Project-Id-Version:  searx\n"
 "Report-Msgid-Bugs-To: EMAIL@ADDRESS\n"
-"POT-Creation-Date: 2026-02-22 13:48+0000\n"
-"PO-Revision-Date: 2025-12-12 07:12+0000\n"
-"Last-Translator: artnay <artnay@noreply.codeberg.org>\n"
+"POT-Creation-Date: 2026-06-13 11:31+0000\n"
+"PO-Revision-Date: 2026-05-19 12:07+0000\n"
+"Last-Translator: return42 <return42@noreply.codeberg.org>\n"
 "Language: fi\n"
 "Language-Team: Finnish "
 "<https://translate.codeberg.org/projects/searxng/searxng/fi/>\n"
@@ -76,7 +76,7 @@ msgid "videos"
 msgstr "videot"
 
 #. CATEGORY_NAMES['RADIO']
-#: searx/engines/radio_browser.py:142 searx/searxng.msg
+#: searx/engines/radio_browser.py:159 searx/searxng.msg
 msgid "radio"
 msgstr "radio"
 
@@ -181,7 +181,7 @@ msgid "Uptime"
 msgstr "Käytettävyysaika"
 
 #. BRAND_CUSTOM_LINKS['ABOUT']
-#: searx/searxng.msg searx/templates/simple/base.html:46
+#: searx/searxng.msg searx/templates/simple/base.html:47
 msgid "About"
 msgstr "Tietoa SearXNG:stä"
 
@@ -546,28 +546,28 @@ msgstr "suljettu"
 msgid "answered"
 msgstr "vastattu"
 
-#: searx/webapp.py:327
+#: searx/webapp.py:326
 msgid "No item found"
 msgstr "Tietuetta ei löytynyt"
 
-#: searx/engines/qwant.py:296
-#: searx/templates/simple/result_templates/images.html:23 searx/webapp.py:329
+#: searx/engines/qwant.py:258
+#: searx/templates/simple/result_templates/images.html:62 searx/webapp.py:328
 msgid "Source"
 msgstr "Lähde"
 
-#: searx/webapp.py:331
+#: searx/webapp.py:330
 msgid "Error loading the next page"
 msgstr "Virhe ladattaessa seuraavaa sivua"
 
-#: searx/webapp.py:480 searx/webapp.py:881
+#: searx/webapp.py:478 searx/webapp.py:876
 msgid "Invalid settings, please edit your preferences"
 msgstr "Virheelliset asetukset, muokkaa siis asetuksia"
 
-#: searx/webapp.py:496
+#: searx/webapp.py:494
 msgid "Invalid settings"
 msgstr "Virheelliset asetukset"
 
-#: searx/webapp.py:573 searx/webapp.py:663
+#: searx/webapp.py:570 searx/webapp.py:660
 msgid "search error"
 msgstr "hakuvirhe"
 
@@ -627,12 +627,12 @@ msgstr "palvelimen API-virhe"
 msgid "Suspended"
 msgstr "Keskeytetty"
 
-#: searx/webutils.py:308
+#: searx/webutils.py:307
 #, python-brace-format
 msgid "{minutes} minute(s) ago"
 msgstr "{minutes} minuutti(a) sitten"
 
-#: searx/webutils.py:309
+#: searx/webutils.py:308
 #, python-brace-format
 msgid "{hours} hour(s), {minutes} minute(s) ago"
 msgstr "{hours} tunti(a), {minutes} minuutti(a) sitten"
@@ -645,6 +645,11 @@ msgstr "Generoi satunnaislukuja"
 #, python-brace-format
 msgid "Compute {func} of the arguments"
 msgstr "Laske argumenteista {func}"
+
+#: searx/engines/boardreader.py:107
+#, python-brace-format
+msgid "Posted by {author}"
+msgstr "Lähettäjä {author}"
 
 #: searx/engines/openstreetmap.py:155
 msgid "Show route in map .."
@@ -659,19 +664,19 @@ msgstr "{title} (VANHENTUNUT)"
 msgid "This entry has been superseded by"
 msgstr "Tämän kohdan on korvannut"
 
-#: searx/engines/qwant.py:298
+#: searx/engines/qwant.py:260
 msgid "Channel"
 msgstr "Kanava"
 
-#: searx/engines/radio_browser.py:144
+#: searx/engines/radio_browser.py:161
 msgid "bitrate"
 msgstr "bittinopeus"
 
-#: searx/engines/radio_browser.py:145
+#: searx/engines/radio_browser.py:162
 msgid "votes"
 msgstr "ääntä"
 
-#: searx/engines/radio_browser.py:146
+#: searx/engines/radio_browser.py:163
 msgid "clicks"
 msgstr "klikkaukset"
 
@@ -706,15 +711,15 @@ msgstr ""
 msgid "The image could not be downloaded."
 msgstr "Tätä kuvaa ei voida ladata."
 
-#: searx/engines/zlibrary.py:78
+#: searx/engines/zlibrary.py:79
 msgid "Language"
 msgstr "Kieli"
 
-#: searx/engines/zlibrary.py:79
+#: searx/engines/zlibrary.py:80
 msgid "Book rating"
 msgstr "Kirjan arvostelu"
 
-#: searx/engines/zlibrary.py:80
+#: searx/engines/zlibrary.py:81
 msgid "File quality"
 msgstr "Tiedoston laatu"
 
@@ -871,45 +876,45 @@ msgstr "Siirry %(search_page)s."
 msgid "search page"
 msgstr "hakusivulle"
 
-#: searx/templates/simple/base.html:50
+#: searx/templates/simple/base.html:51
 msgid "Donate"
 msgstr "Lahjoita"
 
-#: searx/templates/simple/base.html:55 searx/templates/simple/base.html:57
+#: searx/templates/simple/base.html:56 searx/templates/simple/base.html:58
 #: searx/templates/simple/preferences.html:152
 msgid "Preferences"
 msgstr "Asetukset"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "Powered by"
 msgstr "Taustavoimana"
 
-#: searx/templates/simple/base.html:68
+#: searx/templates/simple/base.html:69
 msgid "a privacy-respecting, open metasearch engine"
 msgstr "yksityisyyttä kunnioittava, avoin metahakukone"
 
-#: searx/templates/simple/base.html:69
+#: searx/templates/simple/base.html:70
 #: searx/templates/simple/result_templates/packages.html:59
 msgid "Source code"
 msgstr "Lähdekoodi"
 
-#: searx/templates/simple/base.html:70
+#: searx/templates/simple/base.html:71
 msgid "Issue tracker"
 msgstr "Ongelmien seuranta"
 
-#: searx/templates/simple/base.html:71 searx/templates/simple/stats.html:18
+#: searx/templates/simple/base.html:72 searx/templates/simple/stats.html:17
 msgid "Engine stats"
 msgstr "Hakukoneen tilastot"
 
-#: searx/templates/simple/base.html:73
+#: searx/templates/simple/base.html:74
 msgid "Public instances"
 msgstr "Julkiset palvelimet"
 
-#: searx/templates/simple/base.html:76
+#: searx/templates/simple/base.html:77
 msgid "Privacy policy"
 msgstr "Tietosuojakäytäntö"
 
-#: searx/templates/simple/base.html:79
+#: searx/templates/simple/base.html:80
 msgid "Contact instance maintainer"
 msgstr "Ota yhteyttä palvelun ylläpitäjään"
 
@@ -928,7 +933,7 @@ msgstr "Näkymät"
 
 #: searx/templates/simple/macros.html:43
 #: searx/templates/simple/result_templates/file.html:18
-#: searx/templates/simple/result_templates/images.html:19
+#: searx/templates/simple/result_templates/images.html:52
 #: searx/templates/simple/result_templates/paper.html:14
 msgid "Author"
 msgstr "Tekijä"
@@ -936,28 +941,6 @@ msgstr "Tekijä"
 #: searx/templates/simple/macros.html:51
 msgid "cached"
 msgstr "välimuistissa"
-
-#: searx/templates/simple/new_issue.html:60
-msgid "Start submitting a new issue on GitHub"
-msgstr "Avaa uusi ongelma GitHubissa"
-
-#: searx/templates/simple/new_issue.html:62
-msgid "Please check for existing bugs about this engine on GitHub"
-msgstr "Tarkista tämän hakukoneen tämänhetkiset ongelmat GitHubista"
-
-#: searx/templates/simple/new_issue.html:65
-msgid "I confirm there is no existing bug about the issue I encounter"
-msgstr "Vahvistan, että tästä bugista ei ole olemassa ongelmaa"
-
-#: searx/templates/simple/new_issue.html:67
-msgid "If this is a public instance, please specify the URL in the bug report"
-msgstr ""
-"Jos kyseessä on julkinen palvelin, määritä sen URL-osoite "
-"vikailmoituksessa"
-
-#: searx/templates/simple/new_issue.html:68
-msgid "Submit a new issue on Github including the above information"
-msgstr "Lähetä uusi ongelma Githubiin sisältäen edellä mainitut tiedot"
 
 #: searx/templates/simple/preferences.html:65
 msgid "No HTTPS"
@@ -978,17 +961,17 @@ msgid "!bang for its categories"
 msgstr "!bang sen luokille"
 
 #: searx/templates/simple/preferences.html:102
-#: searx/templates/simple/stats.html:64
+#: searx/templates/simple/stats.html:63
 msgid "Median"
 msgstr "Mediaani"
 
 #: searx/templates/simple/preferences.html:103
-#: searx/templates/simple/stats.html:70
+#: searx/templates/simple/stats.html:69
 msgid "P80"
 msgstr "P80"
 
 #: searx/templates/simple/preferences.html:104
-#: searx/templates/simple/stats.html:76
+#: searx/templates/simple/stats.html:75
 msgid "P95"
 msgstr "P95"
 
@@ -1001,6 +984,8 @@ msgid ""
 "This is a preview of the settings used by the 'Search URL' you used to "
 "get here."
 msgstr ""
+"Tämä on esikatselu asetuksista, joita käytit tänne pääsemiseen "
+"käyttämässäsi 'Haku-URL-osoitteessa'."
 
 #: searx/templates/simple/preferences.html:158
 msgid "Press save to copy these preferences to your browser."
@@ -1042,23 +1027,19 @@ msgstr "Erityiset kyselyt"
 msgid "Cookies"
 msgstr "Evästeet"
 
-#: searx/templates/simple/results.html:30
-msgid "Number of results"
-msgstr "Tulosten määrä"
-
-#: searx/templates/simple/results.html:36
+#: searx/templates/simple/results.html:32
 msgid "Info"
 msgstr "Tiedot"
 
-#: searx/templates/simple/results.html:77
+#: searx/templates/simple/results.html:73
 msgid "Back to top"
 msgstr "Takaisin huipulle"
 
-#: searx/templates/simple/results.html:95
+#: searx/templates/simple/results.html:91
 msgid "Previous page"
 msgstr "Edellinen sivu"
 
-#: searx/templates/simple/results.html:113
+#: searx/templates/simple/results.html:109
 msgid "Next page"
 msgstr "Seuraava sivu"
 
@@ -1081,81 +1062,81 @@ msgstr "tyhjennä"
 msgid "search"
 msgstr "haku"
 
-#: searx/templates/simple/stats.html:21
+#: searx/templates/simple/stats.html:20
 msgid "There is currently no data available. "
 msgstr "Tietoja ei ole juuri nyt saatavilla. "
 
 #: searx/templates/simple/preferences/engines.html:24
-#: searx/templates/simple/stats.html:25
+#: searx/templates/simple/stats.html:24
 msgid "Engine name"
 msgstr "Hakukoneen nimi"
 
-#: searx/templates/simple/stats.html:26
+#: searx/templates/simple/stats.html:25
 msgid "Scores"
 msgstr "Pisteet"
 
-#: searx/templates/simple/stats.html:27
+#: searx/templates/simple/stats.html:26
 msgid "Result count"
 msgstr "Tulosten määrä"
 
 #: searx/templates/simple/elements/engines_msg.html:7
-#: searx/templates/simple/preferences/engines.html:31
-#: searx/templates/simple/stats.html:28
+#: searx/templates/simple/preferences/engines.html:30
+#: searx/templates/simple/stats.html:27
 msgid "Response time"
 msgstr "Vastausaika"
 
-#: searx/templates/simple/preferences/engines.html:35
-#: searx/templates/simple/stats.html:29
+#: searx/templates/simple/preferences/engines.html:34
+#: searx/templates/simple/stats.html:28
 msgid "Reliability"
 msgstr "Luotettavuus"
 
-#: searx/templates/simple/stats.html:59
+#: searx/templates/simple/stats.html:58
 msgid "Total"
 msgstr "Yhteensä"
 
-#: searx/templates/simple/stats.html:60
+#: searx/templates/simple/stats.html:59
 msgid "HTTP"
 msgstr "HTTP"
 
-#: searx/templates/simple/stats.html:61
+#: searx/templates/simple/stats.html:60
 msgid "Processing"
 msgstr "Käsitellään"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Warnings"
 msgstr "Varoitukset"
 
-#: searx/templates/simple/stats.html:99
+#: searx/templates/simple/stats.html:98
 msgid "Errors and exceptions"
 msgstr "Virheet ja poikkeukset"
 
-#: searx/templates/simple/stats.html:105
+#: searx/templates/simple/stats.html:104
 msgid "Exception"
 msgstr "Poikkeus"
 
-#: searx/templates/simple/stats.html:107
+#: searx/templates/simple/stats.html:106
 msgid "Message"
 msgstr "Viesti"
 
-#: searx/templates/simple/stats.html:109
+#: searx/templates/simple/stats.html:108
 msgid "Percentage"
 msgstr "Prosentti"
 
-#: searx/templates/simple/stats.html:111
+#: searx/templates/simple/stats.html:110
 msgid "Parameter"
 msgstr "Parametri"
 
 #: searx/templates/simple/result_templates/code.html:29
 #: searx/templates/simple/result_templates/file.html:24
-#: searx/templates/simple/stats.html:119
+#: searx/templates/simple/stats.html:118
 msgid "Filename"
 msgstr "Tiedoston nimi"
 
-#: searx/templates/simple/stats.html:120
+#: searx/templates/simple/stats.html:119
 msgid "Function"
 msgstr "Funktio"
 
-#: searx/templates/simple/stats.html:121
+#: searx/templates/simple/stats.html:120
 msgid "Code"
 msgstr "Koodi"
 
@@ -1233,7 +1214,7 @@ msgstr "Havaitse automaattisesti"
 #: searx/templates/simple/filters/safesearch.html:2
 #: searx/templates/simple/filters/safesearch.html:3
 #: searx/templates/simple/filters/safesearch.html:4
-#: searx/templates/simple/preferences/engines.html:27
+#: searx/templates/simple/preferences/engines.html:26
 #: searx/templates/simple/preferences/safesearch.html:2
 msgid "SafeSearch"
 msgstr "Turvahaku"
@@ -1254,7 +1235,7 @@ msgid "None"
 msgstr "Ei mitään"
 
 #: searx/templates/simple/filters/time_range.html:1
-#: searx/templates/simple/preferences/engines.html:28
+#: searx/templates/simple/preferences/engines.html:27
 msgid "Time range"
 msgstr "Aikaväli"
 
@@ -1453,15 +1434,11 @@ msgstr "Poista kaikki käytöstä"
 msgid "!bang"
 msgstr "!bang"
 
-#: searx/templates/simple/preferences/engines.html:26
-msgid "Supports selected language"
-msgstr "Tukee valittua kieltä"
-
-#: searx/templates/simple/preferences/engines.html:29
+#: searx/templates/simple/preferences/engines.html:28
 msgid "Weight"
 msgstr "Paino"
 
-#: searx/templates/simple/preferences/engines.html:33
+#: searx/templates/simple/preferences/engines.html:32
 msgid "Max time"
 msgstr "Enimmäisaika"
 
@@ -1648,7 +1625,7 @@ msgid "This site did not provide any description."
 msgstr "Tämä sivu ei antanut mitään kuvausta."
 
 #: searx/templates/simple/result_templates/file.html:30
-#: searx/templates/simple/result_templates/images.html:22
+#: searx/templates/simple/result_templates/images.html:61
 #: searx/templates/simple/result_templates/torrent.html:18
 msgid "Filesize"
 msgstr "Tiedostokoko"
@@ -1666,19 +1643,23 @@ msgstr "Tyyppi"
 msgid "Download"
 msgstr "Lataa"
 
-#: searx/templates/simple/result_templates/images.html:20
+#: searx/templates/simple/result_templates/images.html:53
 msgid "Resolution"
 msgstr "Resoluutio"
 
-#: searx/templates/simple/result_templates/images.html:21
-msgid "Format"
-msgstr "Muoto"
+#: searx/templates/simple/result_templates/images.html:55
+msgid "Image formats"
+msgstr ""
 
-#: searx/templates/simple/result_templates/images.html:24
+#: searx/templates/simple/result_templates/images.html:56
+msgid "original format"
+msgstr ""
+
+#: searx/templates/simple/result_templates/images.html:63
 msgid "Engine"
 msgstr "Hakukone"
 
-#: searx/templates/simple/result_templates/images.html:25
+#: searx/templates/simple/result_templates/images.html:64
 msgid "View source"
 msgstr "Näytä lähde"
 
@@ -2406,4 +2387,30 @@ msgstr "piilota video"
 
 #~ msgid "Comment(s)"
 #~ msgstr "Kommentit"
+
+#~ msgid "Start submitting a new issue on GitHub"
+#~ msgstr "Avaa uusi ongelma GitHubissa"
+
+#~ msgid "Please check for existing bugs about this engine on GitHub"
+#~ msgstr "Tarkista tämän hakukoneen tämänhetkiset ongelmat GitHubista"
+
+#~ msgid "I confirm there is no existing bug about the issue I encounter"
+#~ msgstr "Vahvistan, että tästä bugista ei ole olemassa ongelmaa"
+
+#~ msgid "If this is a public instance, please specify the URL in the bug report"
+#~ msgstr ""
+#~ "Jos kyseessä on julkinen palvelin, "
+#~ "määritä sen URL-osoite vikailmoituksessa"
+
+#~ msgid "Submit a new issue on Github including the above information"
+#~ msgstr "Lähetä uusi ongelma Githubiin sisältäen edellä mainitut tiedot"
+
+#~ msgid "Supports selected language"
+#~ msgstr "Tukee valittua kieltä"
+
+#~ msgid "Number of results"
+#~ msgstr "Tulosten määrä"
+
+#~ msgid "Format"
+#~ msgstr "Muoto"
 

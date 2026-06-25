@@ -36,12 +36,14 @@
 
   - ``360search``
   - ``baidu``
+  - ``bing``
   - ``brave``
   - ``dbpedia``
   - ``duckduckgo``
   - ``google``
   - ``mwmbl``
   - ``naver``
+  - ``privacywall``
   - ``quark``
   - ``qwant``
   - ``seznam``
