@@ -869,6 +869,7 @@ engines:
   engine: duckduckgo
   shortcut: ddg
 
+  disabled: true
 - name: duckduckgo web
   engine: duckduckgo_web
   shortcut: ddgw
